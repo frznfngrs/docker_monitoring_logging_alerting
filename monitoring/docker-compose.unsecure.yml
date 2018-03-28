@@ -15,12 +15,12 @@ services:
     ports:
       - 8080:8080
 
-  #prometheus:
-   # extends:
-   #   file: docker-compose.yml
-   #   service: prometheus
-   # ports:
-   #   - 9090:9090
+  prometheus:
+    extends:
+      file: docker-compose.yml
+      service: prometheus
+    ports:
+      - 9090:9090
 
   blackboxprober:
     extends:
@@ -29,14 +29,14 @@ services:
     ports:
       - 9115:9115
 
-  #grafana:
-   # extends:
-   #   file: docker-compose.yml
-   #   service: grafana
-   # ports:
-   #   - 3000:3000
-   # environment:
-   #   - GF_SECURITY_ADMIN_PASSWORD=admin
+  grafana:
+    extends:
+      file: docker-compose.yml
+      service: grafana
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
 
   alertmanager:
     extends:
